@@ -1,0 +1,43 @@
+<div class="container">
+    <div>
+    <h2>Modifier un Ouvrier :</h2>
+    </div>
+    <form >
+    <div class="col-sm-2 col-md-2 col-lg-2" >
+    <label >ID </label>
+    <input readonly type="text" [(ngModel)]="currentOuvrier.idOuvrier"
+    name="idOuvrier" class="form-control">
+    </div>
+    <div class="col-sm-4 col-md-4 col-lg-4" >
+    <label >Nom </label>
+    <input type="text"[(ngModel)]= "currentOuvrier.nom"
+    name="nom" class="form-control">
+    </div>
+    <div class="col-sm-2 col-md-2 col-lg-2">
+    <label >Télephone</label>
+    <input type="text" [(ngModel)]= "currentOuvrier.tel"
+    name="tel" class="form-control">
+    </div>
+    <div class="col-sm-4 col-md-4 col-lg-4">
+        <label >Date Embauche</label>
+        <input type="date" [ngModel]="currentOuvrier.dateEmbauche| date: 'yyyy-MM-dd'"
+        (ngModelChange)=" currentOuvrier.dateEmbauche= $event" name="dateEmbauche"
+         class="form-control">
+        </div>
+        <div class="col-sm-4 col-md-4 col-lg-4">
+            <label >Salaire</label>
+            <input type="number" [(ngModel)]="currentOuvrier.salaire" name="salaire" class="form-control">
+            </div>
+            <div class="col-sm-4 col-md-4 col-lg-4">
+                <select class="form-control form-control-lg" id="idChantier" name="idChantier"
+                [(ngModel)]="updatedChId">
+                <option *ngFor="let c of chantiers" [value]="c.idChantier" >
+                {{c.nomChantier}}
+                </option>
+                </select>
+                </div>
+        <div class="mt-2">
+        <button type="submit" (click)="updateOuvrier()" class="btn btn-success">Modifer</button>
+        </div>
+        </form>
+        </div>    
